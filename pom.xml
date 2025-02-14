@@ -17,7 +17,13 @@
 		<license />
 	</licenses>
 	<developers>
-		<developer />
+		<developer>
+			<name>lucius</name>
+			<email>scamiros@gmail.com</email>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</developer>
 	</developers>
 	<scm>
 		<connection>scm:git:https://github.com/scamiros/petclinic.git</connection>
