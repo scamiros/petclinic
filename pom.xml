@@ -17,7 +17,11 @@
 		<license />
 	</licenses>
 	<developers>
-		<developer />
+		<developer>
+			<name>lucius</name>
+			<email>scamiros@gmail.com</email>
+			<roles>developer</roles>
+		</developer>
 	</developers>
 	<scm>
 		<connection></connection>
