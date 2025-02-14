@@ -20,7 +20,11 @@
 		<developer>
 			<name>lucius</name>
 			<email>scamiros@gmail.com</email>
-			<roles>developer</roles>
+			<roles>
+				<role>
+					developer
+				</role>
+			</roles>
 		</developer>
 	</developers>
 	<scm>
