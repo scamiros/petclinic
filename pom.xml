@@ -20,10 +20,10 @@
 		<developer />
 	</developers>
 	<scm>
-		<connection />
-		<developerConnection>scm:git:git@github.com:scamiros/petclinic.git</developerConnection>
+		<connection>scm:git:https://github.com/scamiros/petclinic.git</connection>
+		<developerConnection>scm:git:https://github.com/scamiros/petclinic.git</developerConnection>
 		<tag>petclinic-0.0.1</tag>
-		<url />
+		<url>https://github.com/scamiros/petclinic</url>
 	</scm>
 	<properties>
 		<java.version>17</java.version>
