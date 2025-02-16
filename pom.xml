@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>org.lucius</groupId>
 	<artifactId>petclinic</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>petclinic</name>
 	<description>Project for Pet Clinic</description>
 	<url />
@@ -28,7 +28,6 @@
 	<scm>
 		<connection>scm:git:https://github.com/scamiros/petclinic.git</connection>
 		<developerConnection>scm:git:https://github.com/scamiros/petclinic.git</developerConnection>
-		<tag>petclinic-0.0.1</tag>
 		<url>https://github.com/scamiros/petclinic</url>
 	</scm>
 	<distributionManagement>
