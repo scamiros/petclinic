@@ -54,8 +54,4 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
         return super.save(object.getId(), object);
     }
 
-    @Override
-    public Set<Owner> fidnAll() {
-        return Set.of();
-    }
 }

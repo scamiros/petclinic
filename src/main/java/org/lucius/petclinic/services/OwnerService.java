@@ -11,5 +11,5 @@ public interface OwnerService {
     Owner findById(Long id);
     Owner save(Owner o);
 
-    Set<Owner> fidnAll();
+    Set<Owner> findAll();
 }
