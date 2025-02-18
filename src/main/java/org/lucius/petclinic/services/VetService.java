@@ -9,5 +9,5 @@ public interface VetService {
     Vet findById(Long id);
     Vet save(Vet v);
 
-    Set<Vet> fidnAll();
+    Set<Vet> findAll();
 }

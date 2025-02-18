@@ -1,11 +1,13 @@
 package org.lucius.petclinic.services.map;
 
 import org.lucius.petclinic.model.Owner;
-import org.lucius.petclinic.services.CrudService;
+import org.lucius.petclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+@Service
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -33,6 +35,16 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     }
 
     @Override
+    public Owner findByLastName(String lastname) {
+        return null;
+    }
+
+    @Override
+    public Owner findByEmail(String email) {
+        return null;
+    }
+
+    @Override
     public Owner findById(Long id) {
         return super.findById(id);
     }
@@ -40,5 +52,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner save(Owner object) {
         return super.save(object.getId(), object);
+    }
+
+    @Override
+    public Set<Owner> fidnAll() {
+        return Set.of();
     }
 }
