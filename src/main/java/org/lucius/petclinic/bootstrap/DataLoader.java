@@ -25,7 +25,6 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         Owner owner1 = new Owner();
-        owner1.setId(1L);
         owner1.setFirstName("Giovanni");
         owner1.setLastName("Rossi");
         owner1.setEmail("giovanni.rossi@example.com");
@@ -33,7 +32,6 @@ public class DataLoader implements CommandLineRunner {
         owner1.setTelephone("123-456-7890");
 
         Owner owner2 = new Owner();
-        owner2.setId(2L);
         owner2.setFirstName("Maria");
         owner2.setLastName("Bianchi");
         owner2.setEmail("maria.bianchi@example.com");
@@ -41,7 +39,6 @@ public class DataLoader implements CommandLineRunner {
         owner2.setTelephone("234-567-8901");
 
         Owner owner3 = new Owner();
-        owner3.setId(3L);
         owner3.setFirstName("Luca");
         owner3.setLastName("Verdi");
         owner3.setEmail("luca.verdi@example.com");
@@ -49,7 +46,6 @@ public class DataLoader implements CommandLineRunner {
         owner3.setTelephone("345-678-9012");
 
         Owner owner4 = new Owner();
-        owner4.setId(4L);
         owner4.setFirstName("Elena");
         owner4.setLastName("Ferrari");
         owner4.setEmail("elena.ferrari@example.com");
@@ -57,7 +53,6 @@ public class DataLoader implements CommandLineRunner {
         owner4.setTelephone("456-789-0123");
 
         Owner owner5 = new Owner();
-        owner5.setId(5L);
         owner5.setFirstName("Davide");
         owner5.setLastName("Moretti");
         owner5.setEmail("davide.moretti@example.com");
@@ -71,7 +66,6 @@ public class DataLoader implements CommandLineRunner {
         ownerService.save(owner5);
 
         Vet vet1 = new Vet();
-        vet1.setId(1L);
         vet1.setFirstName("Marco");
         vet1.setLastName("Esposito");
         vet1.setEmail("marco.esposito@example.com");
@@ -79,7 +73,6 @@ public class DataLoader implements CommandLineRunner {
         vet1.setTelephone("678-123-4567");
 
         Vet vet2 = new Vet();
-        vet2.setId(2L);
         vet2.setFirstName("Sara");
         vet2.setLastName("Conti");
         vet2.setEmail("sara.conti@example.com");
@@ -87,7 +80,6 @@ public class DataLoader implements CommandLineRunner {
         vet2.setTelephone("789-234-5678");
 
         Vet vet3 = new Vet();
-        vet3.setId(3L);
         vet3.setFirstName("Antonio");
         vet3.setLastName("Ricci");
         vet3.setEmail("antonio.ricci@example.com");
