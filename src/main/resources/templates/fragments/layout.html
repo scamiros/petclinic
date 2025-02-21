@@ -22,10 +22,10 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
 
   <nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand" th:href="@{/}"><span></span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar">
         <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@
 
         </ul>
 
-        <ul class="nav navbar-nav me-auto">
+        <ul class="nav navbar-nav ms-auto">
 
           <li th:replace="~{::menuItem ('/','home','home page','home','Home')}">
             <span class="fa fa-home" aria-hidden="true"></span>
@@ -70,22 +70,27 @@
       </div>
     </div>
   </nav>
-  <div class="container-fluid">
-    <div class="container xd-container">
+  <main class="flex-shrink-0">
+    <div class="container-fluid">
+      <div class="container xd-container">
 
-      <th:block th:insert="${template}" />
+        <th:block th:insert="${template}" />
 
-      <br />
-      <br />
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <img src="../static/images/spring-logo.svg" th:src="@{/resources/images/spring-logo.svg}" alt="VMware Tanzu Logo" class="logo">
-          </div>
+        <br />
+        <br />
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer mt-auto py-3 bg-body-tertiary">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <img src="../static/images/spring-logo.svg" th:src="@{/resources/images/spring-logo.svg}" alt="VMware Tanzu Logo" class="logo">
         </div>
       </div>
     </div>
-  </div>
+  </footer>
 
   <script th:src="@{/webjars/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
 
