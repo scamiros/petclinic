@@ -5,28 +5,34 @@
     <title>List of Owner</title>
 </head>
 <body>
-<h2 th:text="'List of Owners'">List of Owners</h2>
-<table id="owners" class="table table-bordered table-hover">
-    <thead class="table-dark">
-    <tr>
-        <th>ID</th>
-        <th style="width: 150px;" th:text="#{firstname}"></th>
-        <th style="width: 150px;" th:text="#{lastname}"></th>
-        <th style="width: 200px;" th:text="#{email}"></th>
-        <th th:text="#{address}"></th>
-        <th style="width: 120px" th:text="#{telephone}"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="owner : ${owners}">
-        <td th:text="${owner.id}"></td>
-        <td th:text="${owner.firstName}"></td>
-        <td th:text="${owner.lastName}"></td>
-        <td th:text="${owner.email}"></td>
-        <td th:text="${owner.address}"></td>
-        <td th:text="${owner.telephone}"></td>
-    </tr>
-    </tbody>
-</table>
+<div class="card border-warning">
+    <div class="card-header text-bg-warning">
+        <h2 class="card-title" th:text="'List of Owners'">List of Owners</h2>
+    </div>
+    <div class="card-body">
+        <table id="owners" class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th style="width: 150px;" th:text="#{firstname}"></th>
+                <th style="width: 150px;" th:text="#{lastname}"></th>
+                <th style="width: 200px;" th:text="#{email}"></th>
+                <th th:text="#{address}"></th>
+                <th style="width: 120px" th:text="#{telephone}"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="owner : ${owners}">
+                <td th:text="${owner.id}"></td>
+                <td th:text="${owner.firstName}"></td>
+                <td th:text="${owner.lastName}"></td>
+                <td th:text="${owner.email}"></td>
+                <td th:text="${owner.address}"></td>
+                <td th:text="${owner.telephone}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>

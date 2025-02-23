@@ -5,28 +5,34 @@
     <title>List of Vets</title>
 </head>
 <body>
-    <h2 th:text="'List of Vets'">Veterinarians</h2>
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
-        <tr>
-            <th>ID</th>
-            <th style="width: 150px;" th:text="#{firstname}"></th>
-            <th style="width: 150px;" th:text="#{lastname}"></th>
-            <th style="width: 200px;" th:text="#{email}"></th>
-            <th th:text="#{address}"></th>
-            <th style="width: 150px" th:text="#{telephone}"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="vet : ${vets}">
-            <td th:text="${vet.id}"></td>
-            <td th:text="${vet.firstName}"></td>
-            <td th:text="${vet.lastName}"></td>
-            <td th:text="${vet.email}"></td>
-            <td th:text="${vet.address}"></td>
-            <td th:text="${vet.telephone}"></td>
-        </tr>
-        </tbody>
-    </table>
+<div class="card border-info">
+    <div class="card-header text-bg-info">
+        <h2 class="card-title" th:text="'List of Vets'">Veterinarians</h2>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th style="width: 150px;" th:text="#{firstname}"></th>
+                <th style="width: 150px;" th:text="#{lastname}"></th>
+                <th style="width: 200px;" th:text="#{email}"></th>
+                <th th:text="#{address}"></th>
+                <th style="width: 150px" th:text="#{telephone}"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="vet : ${vets}">
+                <td th:text="${vet.id}"></td>
+                <td th:text="${vet.firstName}"></td>
+                <td th:text="${vet.lastName}"></td>
+                <td th:text="${vet.email}"></td>
+                <td th:text="${vet.address}"></td>
+                <td th:text="${vet.telephone}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>

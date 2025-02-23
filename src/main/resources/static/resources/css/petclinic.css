@@ -3575,7 +3575,9 @@ textarea.form-control-lg {
   color: var(--bs-card-color); }
 
 .card-title {
+  text-transform: uppercase;
   margin-bottom: var(--bs-card-title-spacer-y);
+  margin-top: var(--bs-card-title-spacer-y);
   color: var(--bs-card-title-color); }
 
 .card-subtitle {
@@ -9266,9 +9268,9 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important; } }
 
-.table > thead > tr > th {
+/*.table > thead > tr > th {
   background-color: #3c3834;
-  color: #f1f1f1; }
+  color: #f1f1f1; }*/
 
 .table-filter {
   background-color: #34302D;
