@@ -1,6 +1,7 @@
 package org.lucius.petclinic.bootstrap;
 
 import org.lucius.petclinic.model.Owner;
+import org.lucius.petclinic.model.Pet;
 import org.lucius.petclinic.model.PetType;
 import org.lucius.petclinic.model.Vet;
 import org.lucius.petclinic.services.OwnerService;
@@ -9,6 +10,8 @@ import org.lucius.petclinic.services.PetTypeService;
 import org.lucius.petclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -35,13 +38,19 @@ public class DataLoader implements CommandLineRunner {
         dog.setName("Cat");
         PetType savedCat = petTypeService.save(cat);
 
-
         Owner owner1 = new Owner();
         owner1.setFirstName("Giovanni");
         owner1.setLastName("Rossi");
         owner1.setEmail("giovanni.rossi@example.com");
         owner1.setAddress("Via Roma 123, Milano");
         owner1.setTelephone("123-456-7890");
+
+        Pet fuffy = new Pet();
+        fuffy.setPetType(dog);
+        fuffy.setOwner(owner1);
+        fuffy.setName("Fuffy");
+        fuffy.setBirthDate(LocalDate.now());
+        owner1.getPets().add(fuffy);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Maria");
@@ -50,12 +59,26 @@ public class DataLoader implements CommandLineRunner {
         owner2.setAddress("Corso Vittorio 456, Roma");
         owner2.setTelephone("234-567-8901");
 
+        Pet fiona = new Pet();
+        fiona.setPetType(dog);
+        fiona.setOwner(owner2);
+        fiona.setName("Fiona");
+        fiona.setBirthDate(LocalDate.now());
+        owner2.getPets().add(fiona);
+
         Owner owner3 = new Owner();
         owner3.setFirstName("Luca");
         owner3.setLastName("Verdi");
         owner3.setEmail("luca.verdi@example.com");
         owner3.setAddress("Piazza Garibaldi 789, Napoli");
         owner3.setTelephone("345-678-9012");
+
+        Pet theo = new Pet();
+        theo.setPetType(dog);
+        theo.setOwner(owner3);
+        theo.setName("Theo");
+        theo.setBirthDate(LocalDate.now());
+        owner3.getPets().add(theo);
 
         Owner owner4 = new Owner();
         owner4.setFirstName("Elena");
@@ -64,12 +87,26 @@ public class DataLoader implements CommandLineRunner {
         owner4.setAddress("Via Dante 101, Torino");
         owner4.setTelephone("456-789-0123");
 
+        Pet chloe = new Pet();
+        chloe.setPetType(cat);
+        chloe.setOwner(owner4);
+        chloe.setName("Chloe");
+        chloe.setBirthDate(LocalDate.now());
+        owner4.getPets().add(chloe);
+
         Owner owner5 = new Owner();
         owner5.setFirstName("Davide");
         owner5.setLastName("Moretti");
         owner5.setEmail("davide.moretti@example.com");
         owner5.setAddress("Viale Mazzini 202, Firenze");
         owner5.setTelephone("567-890-1234");
+
+        Pet sarah = new Pet();
+        sarah.setPetType(cat);
+        sarah.setOwner(owner5);
+        sarah.setName("Sarah");
+        sarah.setBirthDate(LocalDate.now());
+        owner5.getPets().add(sarah);
 
         ownerService.save(owner1);
         ownerService.save(owner2);
