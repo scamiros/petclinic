@@ -1,6 +1,8 @@
 package org.lucius.petclinic.services.map;
 
+import org.lucius.petclinic.model.Speciality;
 import org.lucius.petclinic.model.Vet;
+import org.lucius.petclinic.services.SpecialitiesService;
 import org.lucius.petclinic.services.VetService;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +10,12 @@ import java.util.Set;
 
 @Service
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
+
+    private final SpecialitiesService specialitiesService;
+
+    public VetMapService(SpecialitiesService specialitiesService) {
+        this.specialitiesService = specialitiesService;
+    }
 
     @Override
     public Set<Vet> findAll() {
@@ -41,6 +49,15 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet object) {
+
+        if (object.getSpecialities().size() > 0) {
+            for (Speciality speciality : object.getSpecialities()) {
+                if (speciality.getId() == null) {
+                    Speciality saved = specialitiesService.save(speciality);
+                    speciality.setId(saved.getId());
+                }
+            }
+        }
         return super.save(object);
     }
 }
