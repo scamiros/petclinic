@@ -2,16 +2,8 @@ package org.lucius.petclinic.services;
 
 import org.lucius.petclinic.model.Owner;
 
-import java.util.Set;
-
-public interface OwnerService {
+public interface OwnerService extends CrudService<Owner, Long> {
 
     Owner findByLastName(String lastname);
     Owner findByEmail(String email);
-    Owner findById(Long id);
-    Owner save(Owner o);
-    void delete(Owner o);
-    void deleteById(Long id);
-
-    Set<Owner> findAll();
 }

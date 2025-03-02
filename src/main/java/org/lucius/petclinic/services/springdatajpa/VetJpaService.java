@@ -3,11 +3,15 @@ package org.lucius.petclinic.services.springdatajpa;
 import org.lucius.petclinic.model.Vet;
 import org.lucius.petclinic.repositories.VetRepository;
 import org.lucius.petclinic.services.VetService;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+@Service
+@Profile("springdatajpa")
 public class VetJpaService implements VetService {
 
     private final VetRepository vetRepository;
@@ -44,6 +48,16 @@ public class VetJpaService implements VetService {
     @Override
     public void deleteById(Long id) {
         vetRepository.deleteById(id);
+    }
+
+    @Override
+    public boolean existsById(Long aLong) {
+        return vetRepository.findById(aLong).isPresent();
+    }
+
+    @Override
+    public long count() {
+        return vetRepository.count();
     }
 
     @Override

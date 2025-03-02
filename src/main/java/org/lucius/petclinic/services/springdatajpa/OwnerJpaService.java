@@ -57,6 +57,16 @@ public class OwnerJpaService implements OwnerService {
     }
 
     @Override
+    public boolean existsById(Long aLong) {
+        return ownerRepository.findById(aLong).isPresent();
+    }
+
+    @Override
+    public long count() {
+        return ownerRepository.count();
+    }
+
+    @Override
     public Set<Owner> findAll() {
         return StreamSupport.stream(ownerRepository.findAll().spliterator(), false)
                 .collect(Collectors.toSet());
