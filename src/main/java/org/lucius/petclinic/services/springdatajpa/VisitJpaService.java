@@ -3,11 +3,15 @@ package org.lucius.petclinic.services.springdatajpa;
 import org.lucius.petclinic.model.Visit;
 import org.lucius.petclinic.repositories.VisitRepository;
 import org.lucius.petclinic.services.VisitService;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+@Service
+@Profile("springdatajpa")
 public class VisitJpaService implements VisitService {
 
     private final VisitRepository visitRepository;
