@@ -2,7 +2,7 @@ package org.lucius.petclinic.services.map;
 
 import org.lucius.petclinic.model.Speciality;
 import org.lucius.petclinic.model.Vet;
-import org.lucius.petclinic.services.SpecialitiesService;
+import org.lucius.petclinic.services.SpecialityService;
 import org.lucius.petclinic.services.VetService;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +11,9 @@ import java.util.Set;
 @Service
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
-    private final SpecialitiesService specialitiesService;
+    private final SpecialityService specialitiesService;
 
-    public VetMapService(SpecialitiesService specialitiesService) {
+    public VetMapService(SpecialityService specialitiesService) {
         this.specialitiesService = specialitiesService;
     }
 
