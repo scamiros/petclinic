@@ -10,6 +10,8 @@ public interface OwnerService {
     Owner findByEmail(String email);
     Owner findById(Long id);
     Owner save(Owner o);
+    void delete(Owner o);
+    void deleteById(Long id);
 
     Set<Owner> findAll();
 }
