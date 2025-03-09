@@ -1,1 +1,2 @@
-# petclinic
+# Spring Framework Petclinic Project
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/scamiros/petclinic/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/scamiros/petclinic/tree/main)
