@@ -39,7 +39,7 @@
         </repository>
     </distributionManagement>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
 
         <!-- Web dependencies -->
         <webjars-locator.version>1.0.1</webjars-locator.version>
