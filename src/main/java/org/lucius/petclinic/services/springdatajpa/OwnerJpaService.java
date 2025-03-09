@@ -58,7 +58,7 @@ public class OwnerJpaService implements OwnerService {
 
     @Override
     public boolean existsById(Long aLong) {
-        return ownerRepository.findById(aLong).isPresent();
+        return ownerRepository.existsById(aLong);
     }
 
     @Override
