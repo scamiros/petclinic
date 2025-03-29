@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Owner</title>
+</head>
+<body>
+<div class="card border-success" th:object="${owner}">
+    <div class="card-header text-bg-success">
+        <h2 class="card-title" th:text="'Owner Information'">Owner Information</h2>
+    </div>
+    <div class="card-body">
+        <div th:if="${message}" class="alert alert-success alert-dismissible fade show d-flex align-items-center" id="success-message">
+            <i class="bi bi-check-circle-fill me-2"></i>
+            <span th:text="${message}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div th:if="${error}" class="alert alert-danger alert-dismissible fade show d-flex align-items-center" id="error-message">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="row g-0">
+            <div class="col-md-3 p-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" fill="#adb5bd" class="bi bi-person-square" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+                </svg>
+            </div>
+            <div class="col-md-9">
+                <div class="card-body ms-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1 class="text-important" th:text="*{firstName + ' ' + lastName}"></h1>
+                        <a class="btn btn-warning btn-lg" th:href="@{__${owner.id}__/edit}"><i class="bi bi-pencil"></i></a>
+                    </div>
+                    <hr>
+                    <div class="d-flex flex-column mt-3">
+                        <div class="mb-3">
+                            <div class="text-uppercase text-success fw-bold"><i class="bi bi-envelope me-2"></i>Email</div>
+                            <div class="fs-3" th:text="*{email}"></div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="text-uppercase text-success fw-bold"><i class="bi bi-pin-map me-2"></i>Address</div>
+                            <div class="fs-3" th:text="*{address}"></div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="text-uppercase text-success fw-bold"><i class="bi bi-phone me-2"></i>Telephone</div>
+                            <div class="fs-3" th:text="*{telephone}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center ps-3 pe-3">
+            <h1 class="text-sub-important text-uppercase">Pets</h1>
+            <a class="btn btn-warning btn-sm" th:href="@{__${owner.id}__/pets/new}">Add new Pet<i class="bi bi-plus-lg ms-2"></i></a>
+        </div>
+        <div class="card p-3 mb-3 m-3" th:if="${#lists.isEmpty(owner.pets)}">
+            <div class="text-center text-muted">
+                <h5>No pets found</h5>
+                <p>This owner doesn't have any pets yet.</p>
+            </div>
+        </div>
+        <div class="card p-3 mb-3 m-3" th:each="pet : ${owner.pets}">
+            <div class="row">
+                <div class="col-4">
+                    <div>
+                        <span class="badge"
+                              th:class="'badge ' + (${pet.petType.name} == 'Dog' ? 'text-bg-primary' : (${pet.petType.name} == 'Cat' ? 'text-bg-success' : 'text-bg-secondary'))"
+                              th:text="${pet.petType.name}">
+                        </span>
+                    </div>
+                    <div class="d-flex justify-content-start align-items-center">
+                        <div th:text="${pet.name}" class="text-sub-important me-2"></div>
+                        <a class="btn btn-warning btn-sm float-end" th:href="@{__${owner.id}__/pets/__${pet.id}__/edit}"><i class="bi bi-pencil"></i></a>
+                    </div>
+                    <div class="text-uppercase mt-2">Birth Date</div>
+                    <div class="fs-5" th:text="${#temporals.format(pet.birthDate, 'dd/MM/yyyy')}"></div>
+
+                </div>
+                <div class="col-8 border-left">
+                    <h2 class="text-uppercase">Visits</h2>
+                    <hr>
+                    <div class="p-3 mb-1 m-1" th:if="${#lists.isEmpty(pet.visits)}">
+                        <div class="text-center text-muted">
+                            <h5>No visits found</h5>
+                            <p>This pet doesn't have any visits yet.</p>
+                        </div>
+                    </div>
+                    <table class="table table-hover" th:if="${not #lists.isEmpty(pet.visits)}">
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr th:each="visit : ${pet.visits}">
+                            <td th:text="${#temporals.format(visit.date, 'yyyy-MM-dd')}"></td>
+                            <td th:text="${visit?.description}"></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
+<body>
+<div class="card border-success">
+    <div class="card-header text-bg-success">
+        <h2 class="card-title" th:text="'List of Owners'">List of Owners</h2>
+    </div>
+    <div class="card-body">
+        <table id="owners" class="table table-hover">
+            <thead>
+            <tr>
+                <th style="width: 200px;">Name</th>
+                <th style="width: 250px;" th:text="#{email}"></th>
+                <th th:text="#{address}"></th>
+                <th style="width: 200px" th:text="#{telephone}"></th>
+                <th>Pets</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="owner : ${listOwners}">
+                <td th:text="${owner.firstName + ' ' + owner.lastName}"></td>
+                <td th:text="${owner.email}"></td>
+                <td th:text="${owner.address}"></td>
+                <td th:text="${owner.telephone}"></td>
+                <td><span class="me-1" th:each="pet : ${owner.pets}" th:text="${pet.name} "/></td>
+                <td>
+                    <a th:href="@{/owners/__${owner.id}__}"/><i class="bi bi-search"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+

@@ -14,13 +14,12 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Person extends BaseEntity {
 
-    public Person(Long id, String firstName, String lastName, String address, String email, String city, String telephone) {
+    public Person(Long id, String firstName, String lastName, String address, String email, String telephone) {
         super(id);
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.email = email;
-        this.city = city;
         this.telephone = telephone;
     }
 
@@ -32,7 +31,6 @@ public class Person extends BaseEntity {
 
     private String email;
     private String address;
-    private String city;
     private String telephone;
 
 }

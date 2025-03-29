@@ -8,6 +8,7 @@ import org.lucius.petclinic.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -60,6 +61,11 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     public Owner findByEmail(String email) {
 
         return this.findAll().stream().filter(o -> o.getEmail().equalsIgnoreCase(email)).findFirst().orElse(null);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return List.of();
     }
 
     @Override
