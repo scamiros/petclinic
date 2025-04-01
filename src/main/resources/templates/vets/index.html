@@ -13,22 +13,22 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>ID</th>
-                <th style="width: 150px;" th:text="#{firstname}"></th>
-                <th style="width: 150px;" th:text="#{lastname}"></th>
+                <th style="width: 150px;">Name</th>
                 <th style="width: 200px;" th:text="#{email}"></th>
                 <th th:text="#{address}"></th>
                 <th style="width: 150px" th:text="#{telephone}"></th>
+                <th>Specialties</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="vet : ${vets}">
-                <td th:text="${vet.id}"></td>
-                <td th:text="${vet.firstName}"></td>
-                <td th:text="${vet.lastName}"></td>
+                <td th:text="${vet.firstName} + ' ' + ${vet.lastName}"></td>
                 <td th:text="${vet.email}"></td>
                 <td th:text="${vet.address}"></td>
                 <td th:text="${vet.telephone}"></td>
+                <td>
+                    <span th:each="specialty : ${vet.specialities}" th:text="${specialty.description + ' '}" />
+                    <span th:if="${vet?.specialities?.size() == 0}">none</span></td>
             </tr>
             </tbody>
         </table>
