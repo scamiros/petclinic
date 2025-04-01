@@ -1,0 +1,40 @@
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
+<body>
+<div class="row">
+  <div class="col-6 offset-3">
+    <div class="card" th:object="${owner}">
+      <div class="card-header">
+        <h2 class="card-title text-uppercase" th:with="text=${pet['new']} ? 'Add Pet' : 'Edit Pet'"  th:text="${text}"></h2>
+      </div>
+      <div class="card-body">
+        <div class="form-group mb-3">
+          <label class="form-label">Owner</label>
+          <div th:text="${owner?.firstName + ' ' + owner?.lastName}" class="text-uppercase fw-bold fs-2"></div>
+        </div>
+        <form class="form-horizontal" method="post" th:object="${pet}">
+          <input type="hidden" th:field="*{id}" />
+          <div class="form-group has-feedback">
+            <input
+                    th:replace="~{fragments/inputField :: input ('Name', 'name', 'text')}" />
+            <input
+                    th:replace="~{fragments/inputField :: input ('Birth Date', 'birthDate', 'date')}" />
+            <input
+                    th:replace="~{fragments/selectField :: select ('Type', 'petType', ${types})}" />
+          </div>
+          <div class="form-group">
+            <div class="col-12">
+              <button th:with="text=${pet['new']} ? 'Add Pet' : 'Update Pet'" class="btn btn-danger float-end" type="submit" th:text="${text}">Add
+                Owner <i class="bi bi-person-plus ms-2"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

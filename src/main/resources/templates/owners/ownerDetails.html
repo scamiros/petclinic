@@ -77,10 +77,12 @@
                     </div>
                     <div class="text-uppercase mt-2">Birth Date</div>
                     <div class="fs-5" th:text="${#temporals.format(pet.birthDate, 'dd/MM/yyyy')}"></div>
-
                 </div>
                 <div class="col-8 border-left">
-                    <h2 class="text-uppercase">Visits</h2>
+                    <div class="d-flex justify-content-between align-items-center ps-3 pe-3">
+                        <h1 class="text-sub-important text-uppercase">Visits</h1>
+                        <a class="btn btn-warning btn-sm" th:href="@{__${owner.id}__/pets/__${pet.id}__/visits/new}">Add Visit<i class="bi bi-plus-lg ms-2"></i></a>
+                    </div>
                     <hr>
                     <div class="p-3 mb-1 m-1" th:if="${#lists.isEmpty(pet.visits)}">
                         <div class="text-center text-muted">
